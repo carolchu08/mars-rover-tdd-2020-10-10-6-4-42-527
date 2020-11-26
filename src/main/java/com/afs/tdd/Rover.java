@@ -1,6 +1,6 @@
 package com.afs.tdd;
 
-import javax.naming.ldap.Control;
+import java.util.Arrays;
 
 public class Rover {
     public static final String W = "W";
@@ -8,6 +8,8 @@ public class Rover {
     public static final String S = "S";
     public static final String N = "N";
     public static final String M = "M";
+    public static final String L = "L";
+    public static final String R = "R";
     private int locationX;
     private int locationY;
     private String direction;
@@ -31,12 +33,12 @@ public class Rover {
         return direction;
     }
 
-    public void controlMarsRover(String commands) {
+    public void executeCommand(String commands) {
         if (commands.equals(M)) {
             this.moverForwards(this.direction);
-        } else if (commands.equals("L")) {
+        } else if (commands.equals(L)) {
             this.turnLeft(this.direction);
-        } else if (commands.equals("R")) {
+        } else if (commands.equals(R)) {
             this.turnRight(this.direction);
         }
     }
@@ -91,6 +93,9 @@ public class Rover {
                 break;
         }
 
+    }
+    public void controlRover(String instruction) {
+        Arrays.asList(instruction.split("")).forEach(this::executeCommand);
     }
 
 }

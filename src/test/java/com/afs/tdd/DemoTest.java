@@ -8,7 +8,7 @@ class DemoTest {
     @Test
     void should_return_y_plus_1_when_direction_given_N() {
         Rover rover = new Rover(0, 0, "N");
-        rover.controlMarsRover("M");
+        rover.controlRover("M");;
 
         assertEquals(0, rover.getLocationX());
         assertEquals(1, rover.getLocationY());
@@ -24,7 +24,7 @@ class DemoTest {
 
 
         //when
-        rover.controlMarsRover("M");
+        rover.controlRover("M");
 
         //then
         assertEquals(0, rover.getLocationX());
@@ -38,7 +38,7 @@ class DemoTest {
 
         Rover rover = new Rover(0,0,"E");
         //when
-        rover.controlMarsRover("M");
+        rover.controlRover("M");
 
 
         //then
@@ -53,7 +53,7 @@ class DemoTest {
         Rover rover = new Rover(0,0,"W");
 
         //when
-        rover.controlMarsRover("M");
+        rover.controlRover("M");
 
         //then
         assertEquals(-1,rover.getLocationX());
@@ -67,7 +67,7 @@ class DemoTest {
 
                 
         //when
-        rover.controlMarsRover("L");
+        rover.controlRover("L");
         
         //then
         assertEquals(0,rover.getLocationX());
@@ -80,7 +80,7 @@ class DemoTest {
         Rover rover = new Rover(0,0,"S");
 
         //when
-        rover.controlMarsRover("L");
+        rover.controlRover("L");
 
         //then
         assertEquals(0,rover.getLocationX());
@@ -94,7 +94,7 @@ class DemoTest {
 
 
         //when
-        rover.controlMarsRover("L");
+        rover.controlRover("L");
 
         //then
         assertEquals(0,rover.getLocationX());
@@ -107,7 +107,7 @@ class DemoTest {
         Rover rover = new Rover(0,0,"W");
 
         //when
-        rover.controlMarsRover("L");
+        rover.controlRover("L");
 
         //then
 
@@ -121,7 +121,7 @@ class DemoTest {
         Rover rover = new Rover(0,0,"N");
 
         //when
-        rover.controlMarsRover("R");
+        rover.controlRover("R");
 
         //then
 
@@ -130,12 +130,12 @@ class DemoTest {
         assertEquals("E",rover.getDirection());
     }
     @Test
-    public void should_return_S_when_direction_given_E_Commands_R() {
+    public void should_return_S_when_direction_given_N_Commands_R() {
         //given
         Rover rover = new Rover(0,0,"E");
 
         //when
-        rover.controlMarsRover("R");
+        rover.controlRover("R");
 
         //then
 
@@ -149,7 +149,7 @@ class DemoTest {
         Rover rover = new Rover(0,0,"S");
 
         //when
-        rover.controlMarsRover("R");
+        rover.controlRover("R");
 
         //then
 
@@ -163,13 +163,27 @@ class DemoTest {
         Rover rover = new Rover(0,0,"W");
 
         //when
-        rover.controlMarsRover("R");
+        rover.controlRover("R");
 
         //then
 
         assertEquals(0,rover.getLocationX());
         assertEquals(0,rover.getLocationY());
         assertEquals("N",rover.getDirection());
+    }
+    @Test
+    public void should_return_expected_Location_when_given_some_commands() {
+        //given
+        Rover rover = new Rover(0,0,"W");
+
+        //when
+        rover.controlRover("RMLLMMR");
+
+        //then
+
+        assertEquals(0,rover.getLocationX());
+        assertEquals(-1,rover.getLocationY());
+        assertEquals("W",rover.getDirection());
     }
 
 
