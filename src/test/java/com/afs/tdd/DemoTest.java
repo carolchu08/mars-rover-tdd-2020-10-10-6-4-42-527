@@ -60,6 +60,21 @@ class DemoTest {
         assertEquals(0,rover.getLocationY());
         assertEquals("W",rover.getDirection());
     }
+    @Test
+    public void should_return_W_when_direction_given_N_Commands_L() {
+        //given
+        Rover rover = new Rover(0,0,"N");
+
+                
+        //when
+        rover.controlMarsRover("L");
+        
+        //then
+        assertEquals(0,rover.getLocationX());
+        assertEquals(0,rover.getLocationY());
+        assertEquals("W",rover.getDirection());
+    }
+    
 
 
 
