@@ -36,15 +36,18 @@ public class Rover {
             this.moverForwards(this.direction);
         } else if (commands.equals("L")) {
             this.turnLeft(this.direction);
-        }else if(commands.equals("R")){
+        } else if (commands.equals("R")) {
             this.turnRight(this.direction);
         }
     }
 
     private void turnRight(String rotationCommands) {
-        switch ((rotationCommands)){
+        switch ((rotationCommands)) {
             case N:
                 this.direction = E;
+                break;
+            case E:
+                this.direction = S;
                 break;
         }
     }
