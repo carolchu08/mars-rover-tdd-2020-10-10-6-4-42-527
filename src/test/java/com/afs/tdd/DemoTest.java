@@ -47,6 +47,20 @@ class DemoTest {
         assertEquals("E",rover.getDirection());
 
     }
+    @Test
+    public void should_reutrn_x_minus_one_when_direction_given_W() {
+        //given
+        Rover rover = new Rover(0,0,"W");
+
+        //when
+        rover.controlMarsRover("M");
+
+        //then
+        assertEquals(-1,rover.getLocationX());
+        assertEquals(0,rover.getLocationY());
+        assertEquals("W",rover.getDirection());
+    }
+
 
 
 }
