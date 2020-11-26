@@ -34,15 +34,18 @@ public class Rover {
     public void controlMarsRover(String commands) {
         if (commands.equals(M)) {
             this.moverForwards(this.direction);
-        }else if(commands.equals("L")){
+        } else if (commands.equals("L")) {
             this.turnLeft(this.direction);
         }
     }
 
     private void turnLeft(String rotationCommands) {
-        switch(rotationCommands){
+        switch (rotationCommands) {
             case N:
                 this.direction = W;
+                break;
+            case S:
+                this.direction = E;
                 break;
         }
     }
