@@ -43,6 +43,9 @@ public class Rover {
             case "E" :
                 locationX += 1;
                 break;
+            case "W" :
+                locationX -= 1;
+                break;
         }
 
     }
