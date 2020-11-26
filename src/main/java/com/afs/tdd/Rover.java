@@ -52,6 +52,9 @@ public class Rover {
             case S:
                 this.direction = W;
                 break;
+            case W:
+                this.direction = N;
+                break;
         }
     }
 
