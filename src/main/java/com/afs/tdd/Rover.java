@@ -40,7 +40,11 @@ public class Rover {
     }
 
     private void turnLeft(String rotationCommands) {
-
+        switch(rotationCommands){
+            case N:
+                this.direction = W;
+                break;
+        }
     }
 
     private void moverForwards(String direction) {
