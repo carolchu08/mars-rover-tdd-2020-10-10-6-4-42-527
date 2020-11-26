@@ -87,6 +87,21 @@ class DemoTest {
         assertEquals(0,rover.getLocationY());
         assertEquals("E",rover.getDirection());
     }
+    @Test
+    public void should_return_N_when_direction_given_E_Commands_L() {
+        //given
+        Rover rover = new Rover(0,0,"E");
+
+
+        //when
+        rover.controlMarsRover("L");
+
+        //then
+        assertEquals(0,rover.getLocationX());
+        assertEquals(0,rover.getLocationY());
+        assertEquals("N",rover.getDirection());
+    }
+
 
     
 
