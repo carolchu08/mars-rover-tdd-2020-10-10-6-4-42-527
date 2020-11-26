@@ -32,6 +32,21 @@ class DemoTest {
         assertEquals("S", rover.getDirection());
 
     }
+    @Test
+    public void should_return_x_plus_one_when_direction_given_E() {
+        //given
+
+        Rover rover = new Rover(0,0,"E");
+        //when
+        rover.controlMarsRover("M");
+
+
+        //then
+        assertEquals(1,rover.getLocationX());
+        assertEquals(0,rover.getLocationY());
+        assertEquals("E",rover.getDirection());
+
+    }
 
 
 }
