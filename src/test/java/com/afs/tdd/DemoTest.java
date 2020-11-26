@@ -29,8 +29,9 @@ class DemoTest {
         //then
         assertEquals(0, rover.getLocationX());
         assertEquals(-1, rover.getLocationY());
-        assertEquals("N", rover.getDirection());
+        assertEquals("S", rover.getDirection());
 
     }
+
 
 }
