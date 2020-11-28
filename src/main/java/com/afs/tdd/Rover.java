@@ -3,13 +3,10 @@ package com.afs.tdd;
 import java.util.Arrays;
 
 public class Rover {
-    public static final String W = "W";
-    public static final String E = "E";
-    public static final String S = "S";
-    public static final String N = "N";
-    public static final String M = "M";
-    public static final String L = "L";
-    public static final String R = "R";
+    private static final String WEST_DIRECTION = "W";
+    private static final String EAST_DIRECTION = "E";
+    private static final String SOUTH_DIRECTION = "S";
+    private static final String NORTH_DIRECTION = "N";
     private int locationX;
     private int locationY;
     private String direction;
@@ -33,69 +30,56 @@ public class Rover {
         return direction;
     }
 
-    public void executeCommand(String commands) {
-        if (commands.equals(M)) {
-            this.moverForwards(this.direction);
-        } else if (commands.equals(L)) {
-            this.turnLeft(this.direction);
-        } else if (commands.equals(R)) {
-            this.turnRight(this.direction);
-        }
-    }
 
-    private void turnRight(String rotationCommands) {
+    public void turnRight(String rotationCommands) {
         switch ((rotationCommands)) {
-            case N:
-                this.direction = E;
+            case NORTH_DIRECTION:
+                this.direction = EAST_DIRECTION;
                 break;
-            case E:
-                this.direction = S;
+            case EAST_DIRECTION:
+                this.direction = SOUTH_DIRECTION;
                 break;
-            case S:
-                this.direction = W;
+            case SOUTH_DIRECTION:
+                this.direction = WEST_DIRECTION;
                 break;
-            case W:
-                this.direction = N;
+            case WEST_DIRECTION:
+                this.direction = NORTH_DIRECTION;
                 break;
         }
     }
 
-    private void turnLeft(String rotationCommands) {
+    public void turnLeft(String rotationCommands) {
         switch (rotationCommands) {
-            case N:
-                this.direction = W;
+            case NORTH_DIRECTION:
+                this.direction = WEST_DIRECTION;
                 break;
-            case S:
-                this.direction = E;
+            case SOUTH_DIRECTION:
+                this.direction = EAST_DIRECTION;
                 break;
-            case E:
-                this.direction = N;
+            case EAST_DIRECTION:
+                this.direction = NORTH_DIRECTION;
                 break;
-            case W:
-                this.direction = S;
+            case WEST_DIRECTION:
+                this.direction = SOUTH_DIRECTION;
                 break;
         }
     }
 
-    private void moverForwards(String direction) {
+    public void moveForwards(String direction) {
         switch (direction) {
-            case N:
+            case NORTH_DIRECTION:
                 this.locationY += 1;
                 break;
-            case S:
+            case SOUTH_DIRECTION:
                 this.locationY -= 1;
                 break;
-            case E:
+            case EAST_DIRECTION:
                 this.locationX += 1;
                 break;
-            case W:
+            case WEST_DIRECTION:
                 this.locationX -= 1;
                 break;
         }
 
     }
-    public void controlRover(String instruction) {
-        Arrays.asList(instruction.split("")).forEach(this::executeCommand);
-    }
-
 }
