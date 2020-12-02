@@ -1,12 +1,11 @@
 package com.afs.tdd;
 
-import java.util.Arrays;
 
 public class Rover {
-    private static final String WEST_DIRECTION = "W";
-    private static final String EAST_DIRECTION = "E";
-    private static final String SOUTH_DIRECTION = "S";
-    private static final String NORTH_DIRECTION = "N";
+    private static final String WEST = "W";
+    private static final String EAST = "E";
+    private static final String SOUTH = "S";
+    private static final String NORTH = "N";
     private int locationX;
     private int locationY;
     private String direction;
@@ -33,50 +32,50 @@ public class Rover {
 
     public void turnRight(String rotationCommands) {
         switch ((rotationCommands)) {
-            case NORTH_DIRECTION:
-                this.direction = EAST_DIRECTION;
+            case NORTH:
+                this.direction = EAST;
                 break;
-            case EAST_DIRECTION:
-                this.direction = SOUTH_DIRECTION;
+            case EAST:
+                this.direction = SOUTH;
                 break;
-            case SOUTH_DIRECTION:
-                this.direction = WEST_DIRECTION;
+            case SOUTH:
+                this.direction = WEST;
                 break;
-            case WEST_DIRECTION:
-                this.direction = NORTH_DIRECTION;
+            case WEST:
+                this.direction = NORTH;
                 break;
         }
     }
 
     public void turnLeft(String rotationCommands) {
         switch (rotationCommands) {
-            case NORTH_DIRECTION:
-                this.direction = WEST_DIRECTION;
+            case NORTH:
+                this.direction = WEST;
                 break;
-            case SOUTH_DIRECTION:
-                this.direction = EAST_DIRECTION;
+            case SOUTH:
+                this.direction = EAST;
                 break;
-            case EAST_DIRECTION:
-                this.direction = NORTH_DIRECTION;
+            case EAST:
+                this.direction = NORTH;
                 break;
-            case WEST_DIRECTION:
-                this.direction = SOUTH_DIRECTION;
+            case WEST:
+                this.direction = SOUTH;
                 break;
         }
     }
 
     public void moveForwards(String direction) {
         switch (direction) {
-            case NORTH_DIRECTION:
+            case NORTH:
                 this.locationY += 1;
                 break;
-            case SOUTH_DIRECTION:
+            case SOUTH:
                 this.locationY -= 1;
                 break;
-            case EAST_DIRECTION:
+            case EAST:
                 this.locationX += 1;
                 break;
-            case WEST_DIRECTION:
+            case WEST:
                 this.locationX -= 1;
                 break;
         }

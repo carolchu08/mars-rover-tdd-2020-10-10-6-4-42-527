@@ -8,7 +8,7 @@ public class Instruction{
     private static final String MOVE_COMMAND = "M";
     private static final String TURN_LEFT_COMMAND = "L";
     private final List<Command> instructions = new ArrayList<>();
-    private Rover rover;
+    private final Rover rover;
 
     public Instruction(Rover rover) {
        this.rover =  rover;
@@ -18,11 +18,11 @@ public class Instruction{
         Arrays.asList(commands.split("")).
                 forEach(command -> {
                     if (command.equals(MOVE_COMMAND)) {
-                        instructions.add(new MoveForwardsCommand(rover));
+                        instructions.add(new MoveForwardsCommand());
                     } else if (command.equals(TURN_LEFT_COMMAND)) {
-                        instructions.add(new TurnLeftCommand(rover));
+                        instructions.add(new TurnLeftCommand());
                     } else {
-                        instructions.add(new TurnRightCommand(rover));
+                        instructions.add(new TurnRightCommand());
                     }
                 });
     }
